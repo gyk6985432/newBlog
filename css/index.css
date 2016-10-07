@@ -1,0 +1,136 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.background {
+    position: absolute;
+    font-family: "Microsoft YaHei";
+    width: 100%;
+    background-image: url(/images/index_background.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.navi{
+    width: 100%;
+    height: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    /*color: #586175;*/
+    color: #aaaaaa;
+    position: absolute;
+    top: 5.5%;
+    line-height: 20px;
+}
+.nav{
+    float: right;
+    margin-right: 6%;
+}
+
+.fa-minus{
+    color: #366ce8;
+}
+
+.fa-arrow-right{
+    color: #366ce8;
+}
+
+a {
+    text-decoration: none !important;
+    color: #aaaaaa;
+}
+a:hover {
+    color: #366ce8;
+}
+
+.title{
+    position: relative;
+    width: 50%;
+    height: 4.17%;
+    margin: 0 auto;
+    top: 30%;
+    font-size: 150%;
+    color: #586175;
+}
+
+.t{
+    float: left;
+}
+
+.t1 {
+    margin-left: 23%;
+    font-weight: 600;
+}
+
+.t3 {
+    background-color: #586175;
+    color: #ffffff;
+    border-width: 0 9px;
+    border-style:solid;
+    border-color:transparent #586175;
+}
+
+.intro {
+    clear: both;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    top: 58%;
+    font-size: 70%;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 6px;
+}
+
+.form {
+    position: relative;
+    width: 4%;
+    height: 7%;
+    margin: 0 auto;
+    top:69%;
+}
+
+.enter {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-image: url(/images/enter.png);
+    background-size: contain;
+    border-radius: 50%;
+    border-width: 0;
+
+    transition: transform 1s;
+    -moz-transition: transform 1s;	/* Firefox 4 */
+    -webkit-transition: transform 1s;	/* Safari 和 Chrome */
+    -o-transition: tranform 1s;	/* Opera */
+}
+
+.enter:hover{
+    -ms-transform: rotateX(360deg); /* IE 9 */
+    -webkit-transform: rotateX(360deg); /* Chrome, Safari, Opera */
+    transform: rotateX(360deg);
+
+}
+
+/*-webkit-animation: larger 5s ease-out; !* Chrome, Safari, Opera *!*/
+/*animation: larger 5s ease-out, smaller 5s 5s infinite;*/
+/*!* Chrome, Safari, Opera *!*/
+/*@-webkit-keyframes larger {*/
+    /*from {letter-spacing: 6px;}*/
+    /*to {letter-spacing: 10px;}*/
+/*}*/
+/*@keyframes larger {*/
+    /*from {letter-spacing: 6px;}*/
+    /*to {letter-spacing: 10px;}*/
+/*}*/
+
+/*.roll {*/
+    /*height:90px;*/
+    /*width:90px;*/
+    /*border-radius: 90px;*/
+    /*border-width: 3px;*/
+    /*border-color: lime;*/
+    /*background-color: transparent;*/
+/*}*/
+
