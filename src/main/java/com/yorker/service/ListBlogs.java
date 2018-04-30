@@ -42,7 +42,7 @@ public class ListBlogs {
             models[i].setMonth(date.substring(5,7));
             models[i].setDay(date.substring(8,10));
             //只能支持一种图片格式
-            models[i].setImgPath("/images/post/"+artical.getId()+".jpg");
+            models[i].setImgPath("../static/images/post/"+artical.getId()+".jpg");
         }
         return models;
     }
