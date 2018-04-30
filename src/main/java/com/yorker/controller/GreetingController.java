@@ -45,6 +45,10 @@ public class GreetingController {
 //        model.addAttribute("map",map);
 //        return "blogList";
 //    }
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
 
     @RequestMapping("/blog")
     public String list(Model model) {
@@ -54,7 +58,7 @@ public class GreetingController {
         } catch (IOException e) {
             return "fail";
         }
-        model.addAttribute("blogs",viewModelList);
+        model.addAttribute("blogs", viewModelList);
         return "blogList";
     }
 
