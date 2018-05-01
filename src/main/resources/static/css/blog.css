@@ -241,6 +241,10 @@ dd:hover {
     float: left;
 }
 
+.comment {
+   float: left;
+}
+
 .typeComment {
     position: relative;
     width: 100%;
@@ -256,7 +260,7 @@ dd:hover {
     width: 300px;
 }
 .selectIcon option {
-    background-image: url(images/enter.png);
+    background-image: url(../images/enter.png);
     background-size: contain;
 }
 

@@ -11,6 +11,16 @@ public class ViewModel {
     private String content;
     private String imgPath;
 
+    public String getSimpleName() {
+        return simpleName;
+    }
+
+    public void setSimpleName(String simpleName) {
+        this.simpleName = simpleName;
+    }
+
+    private String simpleName;
+
     public String getImgPath() {
         return imgPath;
     }

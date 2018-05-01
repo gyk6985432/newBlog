@@ -51,6 +51,7 @@ public class Resolver {
             CharBuffer cb = Charset.forName("utf-8").newDecoder().decode(buffer);
             StringBuffer sb = new StringBuffer(cb);
             artical = getArticalParams(sb);
+//            artical.setSimpleName(getSimpleName(name));
             artical.setCreateDate(getCreateDate(name));
             return artical;
         } catch (FileNotFoundException e) {

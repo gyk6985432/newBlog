@@ -23,6 +23,16 @@ public class Artical {
     private int likes;
     private String tag;
 
+    public String getSimpleName() {
+        return simpleName;
+    }
+
+    public void setSimpleName(String simpleName) {
+        this.simpleName = simpleName;
+    }
+
+    private String simpleName;
+
     public String getTag() {
         return tag;
     }

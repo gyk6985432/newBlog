@@ -2,6 +2,7 @@ package com.yorker.controller;
 
 import com.yorker.model.Artical;
 import com.yorker.dao.ListArticals;
+import com.yorker.model.Comment;
 import com.yorker.model.ViewModelList;
 import com.yorker.service.ListBlogs;
 import org.springframework.stereotype.Controller;
@@ -50,21 +51,29 @@ public class GreetingController {
         return "index";
     }
 
-    @RequestMapping("/blog")
+    @RequestMapping("/intro")
     public String list(Model model) {
         ViewModelList viewModelList;
         try {
             viewModelList = listBlogs.getThreeBlogs();
         } catch (IOException e) {
-            return "fail";
+            return "fail2";
         }
         model.addAttribute("blogs", viewModelList);
         return "blogList";
     }
 
+    @RequestMapping("/blog")
+    public String blog(){
+        return "blog";
+    }
+
     @RequestMapping("/blog/{simpleName}")
     public String getTest(@PathVariable String simpleName, Model model) {
         try {
+            if (simpleName==null || simpleName.length()<1 || simpleName.equals("default")){
+                simpleName = listArticals.getLastArtical();
+            }
             Artical artical = listArticals.getHeaderWithContent(simpleName);
             model.addAttribute("title",artical.getTitle());
             model.addAttribute("date",artical.getCreateDate());
@@ -73,15 +82,16 @@ public class GreetingController {
             model.addAttribute("id",artical.getId());
             model.addAttribute("simpleName",simpleName);
             int num = 0;
-            if (artical.getComments() != null && artical.getComments().length>0){
-                num = artical.getComments().length;
+            Comment[] comments = artical.getComments();
+            if (comments != null && comments.length>0){
+                num = comments.length;
             }
             model.addAttribute("commentNUm",num);
-            model.addAttribute("comments",artical.getComments());
+            model.addAttribute("comments", comments);
         }catch (IOException e){
-            return "fail";
+            return "fail2";
         }
-        return "blog";
+        return "blogFragment";
     }
 
 

@@ -22,8 +22,10 @@
                             <div class="day" th:text="${blogs.models[0].day}"></div>
                             <div class="mon" th:text="${blogs.models[0].year}+${blogs.models[0].month}"></div>
                         </div>
-                        <div class="artiTitle" th:text="${blogs.models[0].title}">&nbsp;&nbsp;<span class="new"></span></div>
-                        <div class="artiContent" th:text="${blogs.models[0].content}"></div>
+                        <a th:href="'/blog/' + ${blogs.models[0].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[0].title}">&nbsp;&nbsp;<span class="new"></span></div>
+                            <div class="artiContent" th:text="${blogs.models[0].content}"></div>
+                        </a>
                     </div>
                 </div>
 
@@ -33,16 +35,20 @@
                             <div class="day" th:text="${blogs.models[1].day}"></div>
                             <div class="mon" th:text="${blogs.models[1].year}+${blogs.models[1].month}"></div>
                         </div>
-                        <div class="artiTitle" th:text="${blogs.models[1].title}"></div>
-                        <div class="artiContent" th:text="${blogs.models[1].content}"></div>
+                        <a th:href="'/blog/' + ${blogs.models[1].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[1].title}"></div>
+                            <div class="artiContent" th:text="${blogs.models[1].content}"></div>
+                        </a>
                     </div>
                     <div class="smallItem smalltwo">
                         <div class="artiDate">
                             <div class="day" th:text="${blogs.models[2].day}"></div>
                             <div class="mon" th:text="${blogs.models[2].year}+${blogs.models[2].month}"></div>
                         </div>
-                        <div class="artiTitle" th:text="${blogs.models[2].title}"></div>
-                        <div class="artiContent" th:text="${blogs.models[2].content}"></div>
+                        <a th:href="'/blog/' + ${blogs.models[2].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[2].title}"></div>
+                            <div class="artiContent" th:text="${blogs.models[2].content}"></div>
+                        </a>
                     </div>
                 </div>
 

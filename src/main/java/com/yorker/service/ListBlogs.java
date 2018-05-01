@@ -41,6 +41,7 @@ public class ListBlogs {
             models[i].setYear(date.substring(0,4));
             models[i].setMonth(date.substring(5,7));
             models[i].setDay(date.substring(8,10));
+            models[i].setSimpleName(artical.getSimpleName());
             //只能支持一种图片格式
             models[i].setImgPath("../static/images/post/"+artical.getId()+".jpg");
         }

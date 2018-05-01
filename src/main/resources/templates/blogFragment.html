@@ -1,0 +1,33 @@
+<div class="blog" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="head">
+        <div class="title" th:text="${title}"></div>
+        <div class="likes">
+            <i class='fa fa-heart' aria-hidden='true'></i>&nbsp;
+            <div style="float: right" th:text="${likes}"></div>
+        </div>
+        <div class="date" th:text="${date}"></div>
+    </div>
+    <div class="detail">
+        <div class="content" id="content" th:text="${content}" >
+            内容
+        </div>
+        <div class="showAll"><input type="button" value="收起全文"/></div>
+
+        <div class="comments" >
+            <form id="subcomment" action="/addComment/${id}/${simpleName}">
+                <div class="typeComment">
+                    <div class="userIcon"><img src="../static/images/user.jpg"/></div>
+                    <textarea cols="58" rows="4" form="subcomment" placeholder="请输入你要评论的内容～～"></textarea>
+                </div>
+                <div class="submitButton"><input type="submit" value="评论" /></div>
+            </form>
+            <div class="comment" th:each="item,iterStat : ${comments}">
+                <div class="userIcon"><img src="../static/images/user.jpg"/></div>
+                <div class="username" th:text="${item.name}+'&nbsp; &nbsp;'+${item.commentDate}"></div>
+                <div class="commentContent" th:text="${item.saying}"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

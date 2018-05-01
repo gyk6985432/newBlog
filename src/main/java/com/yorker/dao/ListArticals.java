@@ -19,9 +19,10 @@ import java.util.List;
 
 /**
  * Created by gyk on 2016/9/22.
+ *
  */
 public class ListArticals {
-    String excerptSeparator  = "/separator/";
+    private String excerptSeparator  = "/separator/";
 
     private String base = "";
     //private String base = String.valueOf(Config.BASE);
@@ -47,7 +48,7 @@ public class ListArticals {
         return file.list();
     }
 
-    public Date getCreateDate(String fileName){
+    private Date getCreateDate(String fileName){
         String[] ss = fileName.split("-");
         try {
             if (Integer.valueOf(ss[0])>1971 &&
@@ -62,6 +63,10 @@ public class ListArticals {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private String getSimpleName(String name){
+        return name.substring(0, name.indexOf("."));
     }
 
     public String getLastArtical(){
@@ -90,8 +95,8 @@ public class ListArticals {
         this.articalNames = names;
     }
 
-    public Artical resolveArtical(String name) throws IOException{
-        Artical artical = new Artical();
+    private Artical resolveArtical(String name) throws IOException{
+        Artical artical;
 
         //创建buffer，channel，将文件读入缓冲区
         RandomAccessFile file = new RandomAccessFile(base+"posts"+File.separator+name,"r");
@@ -111,6 +116,7 @@ public class ListArticals {
         }
         StringBuffer sb = new StringBuffer(cb);
         artical = getArticalParams(sb);
+        artical.setSimpleName(getSimpleName(name));
         artical.setCreateDate(getCreateDate(name));
         return artical;
     }
@@ -134,7 +140,7 @@ public class ListArticals {
     }
 
     public Artical getHeaderWithContent(String name) throws IOException{
-        Artical artical = resolveArtical(name+".md");
+        Artical artical = resolveArtical(name);
         if (artical==null){
             return null;
         }
@@ -187,7 +193,7 @@ public class ListArticals {
     }
 
     private Comment[] getComments(String id){
-        RandomAccessFile file = null;
+        RandomAccessFile file;
         List<Comment> list=new ArrayList<Comment>();
         try {
             file = new RandomAccessFile(base+"comments"+File.separator+id+".md","r");
