@@ -66,7 +66,8 @@ public class ListArticals {
     }
 
     private String getSimpleName(String name){
-        return name.substring(0, name.indexOf("."));
+        return name;
+//        return name.substring(0, name.indexOf("."));
     }
 
     public String getLastArtical(){
@@ -99,7 +100,7 @@ public class ListArticals {
         Artical artical;
 
         //创建buffer，channel，将文件读入缓冲区
-        RandomAccessFile file = new RandomAccessFile(base+"posts"+File.separator+name,"r");
+        RandomAccessFile file = new RandomAccessFile(base+"posts"+File.separator+name+".md","r");
         FileChannel channel = file.getChannel();
         ByteBuffer buffer = ByteBuffer.allocate(100*1024);
         int in = channel.read(buffer);

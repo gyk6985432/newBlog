@@ -22,6 +22,10 @@ public class ListBlogs {
         }
         ViewModel[] models = new ViewModel[names.length];
         for (int i=0;i<names.length;i++){
+            String s = names[i];
+            if (s.contains(".")){
+                names[i] = s.substring(0, s.indexOf("."));
+            }
             Artical artical = listArticals.getHeaderWithIntroduction(names[i]);
             models[i]=new ViewModel();
             if (artical==null){

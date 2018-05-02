@@ -78,7 +78,8 @@ public class GreetingController {
     public String getTest(@PathVariable String simpleName, Model model) {
         try {
             if (simpleName==null || simpleName.length()<1 || simpleName.equals("default")){
-                simpleName = listArticals.getLastArtical();
+                String s = listArticals.getLastArtical();
+                simpleName = s.substring(0, s.indexOf("."));
             }
             Artical artical = listArticals.getHeaderWithContent(simpleName);
             model.addAttribute("title",artical.getTitle());
