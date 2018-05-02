@@ -90,7 +90,6 @@ public class Resolver {
         Comment[] comments = getComments(id);
 
         artical.setTitle(title);
-        artical.setLikes(Integer.valueOf(likes));
         artical.setContent(content);
         artical.setComments(comments);
         return artical;

@@ -20,7 +20,6 @@ public class Artical {
     private String content;
     private Date createDate;
     private Comment[] comments;
-    private int likes;
     private String tag;
 
     public String getSimpleName() {
@@ -39,14 +38,6 @@ public class Artical {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public int getLikes() {
-        return likes;
-    }
-
-    public void setLikes(int likes) {
-        this.likes = likes;
     }
 
     public Comment[] getComments() {

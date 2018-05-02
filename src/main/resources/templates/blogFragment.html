@@ -1,19 +1,16 @@
 <div class="blog" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="head">
         <div class="title" th:text="${title}"></div>
-        <div class="likes">
-            <i class='fa fa-heart' aria-hidden='true'></i>&nbsp;
-            <div style="float: right" th:text="${likes}"></div>
-        </div>
         <div class="date" th:text="${date}"></div>
     </div>
     <div class="detail">
         <div class="content" id="content" th:text="${content}" >
             内容
         </div>
-        <div class="showAll"><input type="button" value="收起全文"/></div>
 
-        <div class="comments" >
+        <div class="showComment" onclick="showComment()">收起评论</div>
+
+        <div class="comments" id="comments">
             <form id="subcomment" action="/addComment/${id}/${simpleName}">
                 <div class="typeComment">
                     <div class="userIcon"><img src="../static/images/user.jpg"/></div>
@@ -29,5 +26,32 @@
         </div>
     </div>
 </div>
+<!-- markdown parser-->
+<script src="../static/js/markdown.min.js"></script>
+<script src="../static/js/markdownParser.js" defer='defer'></script>
+
+<!--//ajax添加评论和点赞-->
+<script>
+    function like() {
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("post","/like",true);
+            xmlhttp.send()
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+    function comment() {
+        var xmlhttp;
+        if (window.XMLHttpRequest){
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open("post","/comment",true);
+            xmlhttp.send()
+        }else{
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+    }
+</script>
 
 

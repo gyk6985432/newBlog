@@ -69,6 +69,12 @@ public class GreetingController {
     }
 
     @RequestMapping("/blog/{simpleName}")
+    public String blogWithSimpleName(@PathVariable String simpleName, Model model){
+        model.addAttribute("simpleName", simpleName);
+        return "blog";
+    }
+
+    @RequestMapping("/fragment/{simpleName}")
     public String getTest(@PathVariable String simpleName, Model model) {
         try {
             if (simpleName==null || simpleName.length()<1 || simpleName.equals("default")){
@@ -78,7 +84,6 @@ public class GreetingController {
             model.addAttribute("title",artical.getTitle());
             model.addAttribute("date",artical.getCreateDate());
             model.addAttribute("content",artical.getContent());
-            model.addAttribute("likes",artical.getLikes());
             model.addAttribute("id",artical.getId());
             model.addAttribute("simpleName",simpleName);
             int num = 0;

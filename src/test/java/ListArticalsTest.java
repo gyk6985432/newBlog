@@ -43,7 +43,6 @@ public class ListArticalsTest {
 
         String[] names = la.getArticalNames();
         Artical a = la.getHeaderWithIntroduction(names[1]);
-        System.out.println(a.getTitle()+"|"+a.getLikes()+"|"+a.getCreateDate().toString()+"|"+a.getContent());
     }
 
     @Test

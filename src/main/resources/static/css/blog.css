@@ -93,18 +93,26 @@ dd:hover {
 .statistics {
     background-color: #ffffff;
     width: 100%;
-    columns: 3;
-    column-rule: solid 1px #dddddd;
-    column-gap: 0;
+    display: table;
+    /*columns: 2;*/
+    /*column-rule: solid 1px #dddddd;*/
+    /*column-gap: 0;*/
     margin: 10px 0;
     padding: 10px 0;
 }
 
 .statistics div {
-    clear: both;
+    /*clear: both;*/
+    display: table-cell;
+    width: 50%;
     height: 2.8rem;
     text-align: center;
 }
+
+.statistics div:first-child {
+    border-right: solid 1px #aaaaaa;
+}
+
 .statistics .snum {
     font-size: 1.8rem;
     color: #586185;
@@ -161,12 +169,6 @@ dd:hover {
     float: left;
 }
 
-.likes {
-    font-size: 1rem;
-    line-height: 2rem;
-    float: right;
-    margin: 0 8px;
-}
 .date {
     clear: both;
     font-size: 0.9rem;
@@ -181,28 +183,29 @@ dd:hover {
     font-size: 0.9rem;
 }
 
-.showAll {
+.showComment {
     position: relative;
-    width: 6.3rem;
-    height: 1.8rem;
+    width: 4.3rem;
+    height: 1.4rem;
     margin: 10px auto 30px;
-}
-
-.showAll input {
-    width: 100%;
-    height: 100%;
     background-color: transparent;
     border: 1px solid #c3c3c3;
     border-radius: 3px;
     text-decoration: none;
     font-family: "Microsoft YaHei","sans-serif";
     font-size: 0.9rem;
+    text-align: center;
     color: #888888;
 }
 
-.showAll input:hover {
+.showComment:hover {
+    border: 1px solid #366ce8;
+    color: #366ce8;
+}
+
+.showComment:active {
     background-color: #366ce8;
-    color: #ffffff;
+    color: #c3c3c3;
 }
 
 .comments {

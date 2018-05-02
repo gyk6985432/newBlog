@@ -166,11 +166,6 @@ public class ListArticals {
         }
         Comment[] comments = getComments(id);
         artical.setTitle(title);
-        try {
-            artical.setLikes(Integer.valueOf(likes));
-        }catch (Exception e){
-            artical.setLikes(0);
-        }
 
         artical.setId(id);
         artical.setContent(content);

@@ -12,4 +12,4 @@ function parser(content) {
 var get = function (id) {
     return document.getElementById(id);
 }
-// new parser(get("content"));
+new parser(get("content"));
