@@ -1,9 +1,7 @@
 package com.yorker.controller;
 
-import com.yorker.model.Artical;
+import com.yorker.model.*;
 import com.yorker.dao.ListArticals;
-import com.yorker.model.Comment;
-import com.yorker.model.ViewModelList;
 import com.yorker.service.ListBlogs;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class GreetingController {
@@ -64,12 +65,18 @@ public class GreetingController {
     }
 
     @RequestMapping("/blog")
-    public String blog(){
+    public String blog(Model model){
+        List<ViewModelNavi> list = getList();
+        model.addAttribute("list", list);
+        model.addAttribute("num", list.size());
         return "blog";
     }
 
     @RequestMapping("/blog/{simpleName}")
     public String blogWithSimpleName(@PathVariable String simpleName, Model model){
+        List<ViewModelNavi> list = getList();
+        model.addAttribute("list", list);
+        model.addAttribute("num", list.size());
         model.addAttribute("simpleName", simpleName);
         return "blog";
     }
@@ -100,10 +107,24 @@ public class GreetingController {
         return "blogFragment";
     }
 
-
-
     @RequestMapping("/fail2")
     public String fail2() {
         throw new IllegalStateException();
+    }
+
+    private List<ViewModelNavi> getList(){
+        List<ViewModelNavi> list = new ArrayList<ViewModelNavi>();
+        try {
+            List<ViewModel> listModel = Arrays.asList(listBlogs.getAllModels());
+            for (ViewModel v : listModel) {
+                ViewModelNavi nav = new ViewModelNavi();
+                nav.setSimpleName(v.getSimpleName());
+                nav.setTitle(v.getTitle());
+                list.add(nav);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

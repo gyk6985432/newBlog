@@ -15,7 +15,7 @@ public class ListBlogs {
 //        private ListArticals listArticals = new ListArticals("/opt/resources/");
     private ListArticals listArticals = new ListArticals("E:\\resources\\");
 
-    private ViewModel[] getAllModels() throws IOException {
+    public ViewModel[] getAllModels() throws IOException {
         String[] names = listArticals.getArticalNames();
         if (names == null || names.length<1){
             return null;

@@ -16,6 +16,14 @@ body{
 
 }
 
+a {
+    text-decoration: none !important;
+    color: #aaaaaa;
+}
+a:hover {
+    color: #366ce8;
+}
+
 .navi{
     width: 100%;
     height: 20px;
@@ -35,7 +43,16 @@ body{
     color: #c3c3c3;
     float: left;
     margin-left: 4%;
+    transition: font-size 0.5s;
+    -moz-transition: font-size 0.5s;	/* Firefox 4 */
+    -webkit-transition: font-size 0.5s;	/* Safari 和 Chrome */
+    -o-transition: font-size 1s;
 }
+
+.name:hover{
+    font-size: 1rem;
+}
+
 .fa-minus{
     color: #366ce8;
 }
@@ -181,6 +198,8 @@ dd:hover {
 .content {
     margin-bottom: 20px;
     font-size: 0.9rem;
+    line-height: 1.8rem;
+    letter-spacing: 0.08rem;
 }
 
 .showComment {
