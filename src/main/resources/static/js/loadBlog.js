@@ -3,9 +3,9 @@
  */
 function load(name) {
     if (name == "null"){
-        $(".blog").load("/fragment/default");
+        $(".blog").load("/1/fragment/1");
     }else {
-        $(".blog").load("/fragment/"+name);
+        $(".blog").load("/1/fragment/"+name);
     }
 }
 

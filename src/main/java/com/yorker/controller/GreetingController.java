@@ -20,33 +20,6 @@ public class GreetingController {
     private ListArticals listArticals = new ListArticals("E:\\resources\\");
     private ListBlogs listBlogs = new ListBlogs();
 
-//    @RequestMapping("/blog")
-//    public String list(Model model){
-//        String[] names = listArticals.getArticalNames();
-//        Map<String,String> map = new TreeMap<String, String>();
-//        //获得最新文章
-//        String newArticalName = listArticals.getLastArtical();
-//        Artical newArtical;
-//        try {
-//            newArtical = listArticals.getHeaderWithIntroduction(newArticalName);
-//            model.addAttribute("newArtical",newArtical);
-//            Comment[] comments = newArtical.getComments();
-//            int num = 0;
-//            if (comments != null && comments.length > 0){
-//                num = comments.length;
-//            }
-//            model.addAttribute("commentNum",num);
-//            //文件名和标题的映射
-//            for (int i=0;i<names.length;i++){
-//                String title = listArticals.getHeaderWithIntroduction(names[i]).getTitle();
-//                map.put(names[i],title);
-//            }
-//        }catch (IOException e){
-//            return "fail";
-//        }
-//        model.addAttribute("map",map);
-//        return "blogList";
-//    }
     @RequestMapping("/")
     public String index(){
         return "index";
@@ -109,7 +82,7 @@ public class GreetingController {
 
     @RequestMapping("/fail2")
     public String fail2() {
-        throw new IllegalStateException();
+        return "fail2";
     }
 
     private List<ViewModelNavi> getList(){

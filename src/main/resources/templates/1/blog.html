@@ -4,10 +4,10 @@
         <meta charset="utf-8"/>
         <!--font-awesome.min.css"> -->
         <script src="https://use.fontawesome.com/d35a849ddd.js"></script>
-        <script src="../static/js/includeHTML.js"></script>
-        <script src="../static/js/jquery-3.3.1.min.js"></script>
-        <script src="../static/js/loadBlog.js"></script>
-        <link href="../static/css/blog.css" rel="stylesheet"/>
+        <script src="../../static/js/includeHTML.js"></script>
+        <script src="../../static/js/jquery-3.3.1.min.js"></script>
+        <script src="../../static/js/loadBlog.js"></script>
+        <link href="../../static/css/blog.css" rel="stylesheet"/>
         <title>博客</title>
     </head>
     <body>
@@ -15,22 +15,20 @@
             <div class="navi">
                 <div class="name"><a href="/"><font size="4px" color="#366ce8">Y</font>ORKER WORK</a></div>
                 <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><a href="#"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;联系</a></div>
-                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><a href="/intro"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;资料</a></div>
-                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><a href="/blog"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;博客</a></div>
+                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><a href="/1/intro"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;资料</a></div>
+                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><a href="/1/blog"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;博客</a></div>
             </div>
 
             <div class="main">
                 <div class="sidebar">
                     <div class="dateNav">
-                        <dl>
-                            <dt>2016</dt>
-                            <dd>10月</dd>
-                            <dt>2015</dt>
-                            <dt>2014</dt>
+                        <dl th:each="date : ${dates}">
+                            <dt th:text="${date.key}">2016</dt>
+                            <dd th:each="month : ${date.value}"><a th:text="${month}+'月'" th:href="'/1/'+${date.key}+${month}">10月</a></dd>
                         </dl>
                     </div>
                     <div class="statistics">
-                        <div><p class="snum" th:text="${num}">0</p><p class="scon">文章</p></div>
+                        <div><p class="snum">3</p><p class="scon">文章</p></div>
                         <div><p class="snum">9</p><p class="scon">评论</p></div>
                         <!--<div><p class="snum">27</p><p class="scon">点赞</p></div>-->
                     </div>
@@ -38,7 +36,7 @@
                         <ul style="list-style-type: none;">
                             <li th:each="item,iterStat : ${list}">
                                 <i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;
-                                <a th:text="${item.title}" th:href="'/blog/'+${item.simpleName}"></a>
+                                <a th:text="${item[1]}" th:href="'/1/blog/'+${item[0]}"></a>
                             </li>
                         </ul>
                     </div>
@@ -52,10 +50,10 @@
         <!--加载blog-->
         <!--<script>includeHTML();</script>-->
         <script th:inline="javascript">
-            var name = /*[[${simpleName}]]*/"";
+            var name = /*[[${id}]]*/"";
             load(name);
         </script>
-        <script src="../static/js/naviEffect.js"></script>
+        <script src="../../static/js/naviEffect.js"></script>
     </body>
 </html>
 

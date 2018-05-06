@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <script src="https://use.fontawesome.com/d35a849ddd.js"></script>
+      <link th:href="@{/static/css/blogList.css}" rel="stylesheet" type="text/css"/>
+      <title>博客</title>
+  </head>
+  <body>
+    <div class="background">
+        <div class="navi">
+                <div class="name"><a href="/"><strong>Y</strong>ORKER WORK</a></div>
+                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">联系</a></div>
+                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;<a href="#">资料</a></div>
+                <div class="nav" onmouseover="navHover(this)" onmouseout="navOut(this)"><i class="fa fa-minus" aria-hidden="true"></i>&nbsp;&nbsp;<a href="/blog">博客</a></div>
+        </div>
+
+        <div class="boxes">
+                <div class="bigone">
+                    <div class="figure" th:style="'background-image:url('+${blogs.imgPath}+')'"></div>
+                    <div class="arti">
+                        <div class="artiDate">
+                            <div class="day" th:text="${blogs.models[0].day}"></div>
+                            <div class="mon" th:text="${blogs.models[0].year}+${blogs.models[0].month}"></div>
+                        </div>
+                        <a th:href="'/blog/' + ${blogs.models[0].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[0].title}">&nbsp;&nbsp;<span class="new"></span></div>
+                            <div class="artiContent" th:text="${blogs.models[0].content}"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="small">
+                    <div class="smallItem smallone">
+                        <div class="artiDate">
+                            <div class="day" th:text="${blogs.models[1].day}"></div>
+                            <div class="mon" th:text="${blogs.models[1].year}+${blogs.models[1].month}"></div>
+                        </div>
+                        <a th:href="'/blog/' + ${blogs.models[1].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[1].title}"></div>
+                            <div class="artiContent" th:text="${blogs.models[1].content}"></div>
+                        </a>
+                    </div>
+                    <div class="smallItem smalltwo">
+                        <div class="artiDate">
+                            <div class="day" th:text="${blogs.models[2].day}"></div>
+                            <div class="mon" th:text="${blogs.models[2].year}+${blogs.models[2].month}"></div>
+                        </div>
+                        <a th:href="'/blog/' + ${blogs.models[2].simpleName}">
+                            <div class="artiTitle" th:text="${blogs.models[2].title}"></div>
+                            <div class="artiContent" th:text="${blogs.models[2].content}"></div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="more">更多文章</div>
+        </div>
+
+        <div class="bott">
+            <!--
+            <div class="intro">
+                <div class="slogan"></div>
+                <div class="portrait"></div>
+            </div>
+            -->
+            <div class="foot">
+                <div class="email">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> &nbsp;444720556@qq.com
+                </div>
+                <div class="wechat">
+                    <i class="fa fa-weixin"></i> &nbsp;storming
+                </div>
+                <div class="twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i> &nbsp;gyk6985432
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        var pageWidth=window.innerWidth;
+        var pageHeight=window.innerHeight;
+        var background = document.getElementsByClassName('background')[0];
+        background.style.width = pageWidth+'px';
+        background.style.height = pageWidth*1.1+'px';
+        if (pageHeight>pageWidth*1.1) {
+            background.style.height = pageHeight+'px';
+        }
+    </script>
+    <script src="../static/js/naviEffect.js"></script>
+  </body>
+</html>
