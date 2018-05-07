@@ -39,4 +39,8 @@ public class FindArticle {
         return repository.findAllArticles();
     }
 
+    public long count(){
+        return repository.count();
+    }
+
 }

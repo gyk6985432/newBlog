@@ -8,22 +8,24 @@
             内容
         </div>
 
-        <!--<div class="showComment" onclick="showComment()">收起评论</div>-->
+        <div class="showComment" onclick="showComment()">收起评论</div>
 
-        <!--<div class="comments" id="comments">-->
-            <!--<form id="subcomment" action="/addComment/${id}/${simpleName}">-->
-                <!--<div class="typeComment">-->
+        <div class="comments" id="comments">
+            <form id="subcomment" th:action="@{/1/addComment/__${article.id}__}" method="post">
+                <div class="typeComment">
                     <!--<div class="userIcon"><img src="../static/images/user.jpg"/></div>-->
-                    <!--<textarea cols="58" rows="4" form="subcomment" placeholder="请输入你要评论的内容～～"></textarea>-->
-                <!--</div>-->
-                <!--<div class="submitButton"><input type="submit" value="评论" /></div>-->
-            <!--</form>-->
-            <!--<div class="comment" th:each="item,iterStat : ${comments}">-->
+                    <input class="user" name="user" type="text" maxlength="10" placeholder="您的名字(非空)"/>
+                    <input class="mail" name="mail" type="text" maxlength="25" placeholder="您的邮箱(非空)"/>
+                    <textarea cols="58" rows="4" name="saying" placeholder="请输入你要评论的内容(非空)"></textarea>
+                </div>
+                <div class="submitButton"><input type="submit" value="评论" /></div>
+            </form>
+            <div class="comment" th:each="item,iterStat : ${comments}">
                 <!--<div class="userIcon"><img src="../static/images/user.jpg"/></div>-->
-                <!--<div class="username" th:text="${item.name}+'&nbsp; &nbsp;'+${item.commentDate}"></div>-->
-                <!--<div class="commentContent" th:text="${item.saying}"></div>-->
-            <!--</div>-->
-        <!--</div>-->
+                <div class="username" th:text="${item[1]}+'&nbsp; &nbsp;'+${item[3]}"></div>
+                <div class="commentContent" th:text="${item[2]}"></div>
+            </div>
+        </div>
     </div>
 </div>
 <!-- markdown parser-->
